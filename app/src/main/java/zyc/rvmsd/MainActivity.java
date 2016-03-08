@@ -90,10 +90,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             case R.id.btn_select_all_toggle:
                 final boolean allSelected = mAllSelected;
                 Stream.ofRange(0, mAdapter.getItemCount())
-                        .forEach(i -> {
-                            mSelectionSupport.setItemChecked(i, !allSelected);
-                            mAdapter.notifyDataSetChanged();
-                        });
+                        .forEach(i -> mSelectionSupport.setItemChecked(i, !allSelected));
+                mAdapter.notifyDataSetChanged();
                 break;
         }
     }
@@ -186,7 +184,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
 
             public void bind(int position) {
-                mCheckbox.setChecked(mAdapter.getSelectionSupport().isItemChecked(position));
+                boolean checked = mAdapter.getSelectionSupport().isItemChecked(position);
+                mCheckbox.setChecked(checked);
+                itemView.setActivated(checked);
             }
 
             @OnClick(R.id.list_item_container)
