@@ -98,32 +98,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     /****************************************************************************************************************/
 
-    public static class BaseAdapter extends RecyclerView.Adapter<BaseAdapter.BaseViewHolder> {
-        private List<String> mList;
-
+    public static class BaseAdapter extends RvAdapter<String, BaseAdapter.BaseViewHolder> {
         public BaseAdapter(List<String> data) {
-            setData(data);
-        }
-
-        public void setData(List<String> data) {
-            mList = data;
-            notifyDataSetChanged();
+            super(data);
         }
 
         @Override
         public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new BaseViewHolder(LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.list_item, parent, false));
+            return new BaseViewHolder(inflateView(R.layout.list_item, parent));
         }
 
         @Override
         public void onBindViewHolder(BaseViewHolder holder, int position) {
             holder.bind(mList.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return mList.size();
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
