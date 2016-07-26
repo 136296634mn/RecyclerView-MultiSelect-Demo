@@ -220,19 +220,13 @@ public class ItemSelectionSupport {
 
     @TargetApi(HONEYCOMB)
     public void setViewChecked(View view, boolean checked) {
-/*
-        if (view instanceof ViewGroup) {
-            ViewGroup vg = (ViewGroup) view;
-            for (int i = 0; i < vg.getChildCount(); ++i) {
-                View child = vg.getChildAt(i);
-                if (child instanceof Checkable) {
-                    ((Checkable) child).setChecked(checked);
-                } else if (child instanceof ViewGroup) {
-                    setViewChecked(child, checked);
-                }
-            }
+        /*
+        if (view instanceof Checkable) {
+            ((Checkable) view).setChecked(checked);
+        } else if (Build.VERSION.SDK_INT >= HONEYCOMB) {
+            view.setActivated(checked);
         }
-*/
+        */
     }
 
     /**
