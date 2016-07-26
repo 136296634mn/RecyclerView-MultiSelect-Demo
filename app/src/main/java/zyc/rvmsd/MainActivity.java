@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Bind(R.id.rv_demo)
     RecyclerView mRvDemo;
 
+//    private BaseAdapter mAdapter;
     private SelectableAdapter mAdapter;
     private ItemSelectionSupport mSelectionSupport;
     private boolean mAllSelected;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mSelectionSupport = new ItemSelectionSupport(mRvDemo);
         handleAllSelectedOrNot(false);
         mSelectionSupport.setChoiceModeMultiple(allSelected -> handleAllSelectedOrNot(allSelected));
-//        mAdapter = new BaseAdapter(data);
+//        mAdapter = new BaseAdapter(data);  // You can enable(uncomment) this line, and disable next line
         mAdapter = new SelectableAdapter(data, mSelectionSupport);
         mRvDemo.setAdapter(mAdapter);
     }
