@@ -1,6 +1,7 @@
 package zyc.rvmsd.itemselectionsupport;
 
 import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.Checkable;
 
 import static android.os.Build.VERSION_CODES.HONEYCOMB;
 
