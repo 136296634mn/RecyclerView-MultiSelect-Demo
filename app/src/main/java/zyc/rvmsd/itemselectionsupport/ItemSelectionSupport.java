@@ -45,12 +45,14 @@ public class ItemSelectionSupport {
     }
 
     private void updateOnScreenCheckedViews() {
+        /*
         final int count = mRecyclerView.getChildCount();
         for (int i = 0; i < count; i++) {
             final View child = mRecyclerView.getChildAt(i);
             final int position = mRecyclerView.getChildPosition(child);
             setViewChecked(child, mCheckedStates.get(position));
         }
+        */
     }
 
     /**
@@ -220,13 +222,11 @@ public class ItemSelectionSupport {
 
     @TargetApi(HONEYCOMB)
     public void setViewChecked(View view, boolean checked) {
-        /*
         if (view instanceof Checkable) {
             ((Checkable) view).setChecked(checked);
         } else if (Build.VERSION.SDK_INT >= HONEYCOMB) {
             view.setActivated(checked);
         }
-        */
     }
 
     /**
